@@ -14,7 +14,7 @@
 ## If no input matrix is passed, an empty one is created by default
 ## The 'inv' member is initialized to a NULL value
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(mat = matrix()) {
   inv    <- NULL
   set    <- function(val) { mat <<- val; inv <<- NULL }
   get    <- function()    { mat }
@@ -30,7 +30,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## it returns the cached inverse. Otherwise, it computes the inverse, saves it for
 ## future use and returns it as output
 
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(cmat, ...) {
   inv <- cmat$getinv()
   if ( !is.null(inv) ) {
     return(inv)
